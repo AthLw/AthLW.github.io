@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>微机复习第十一章</title>
+      <link href="/2019/01/03/chapter11Reivew/"/>
+      <url>/2019/01/03/chapter11Reivew/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微型计算机接口技术"><a href="#微型计算机接口技术" class="headerlink" title="微型计算机接口技术"></a>微型计算机接口技术</h1><h2 id="Chapter-11"><a href="#Chapter-11" class="headerlink" title="Chapter 11"></a>Chapter 11</h2><p>本章主要内容是可编程定时器/计数器 <strong>8254芯片</strong></p><h4 id="8254芯片"><a href="#8254芯片" class="headerlink" title="8254芯片"></a>8254芯片</h4><p>有3个独立的16位计数器。<br>系统地址最后两位A1 A0指定了寄存器类型：</p><ol><li>00 选中#0号计数器  </li><li>01 选中#1号计数器  </li><li>10 选中#2号计数器  </li><li>11 选中控制寄存器   </li></ol><p>主要有三个功能：  </p><ol><li>日时钟中断(对应 <strong>#0</strong> 号计数器)  </li><li>存储器动态刷新(对应 <strong>#1</strong> 号计数器)  </li><li>发声系统声源(对应 <strong>#2</strong> 号计数器)</li></ol><p>要想使8254正常工作，需要按照一定的流程对他进行设置：  </p><ol><li>向控制寄存器写入控制字  </li><li>向需要操作的计数器写入初值</li></ol><h4 id="初值"><a href="#初值" class="headerlink" title="初值"></a>初值</h4><p>计算公式为：</p><blockquote><p>N = f<sub>clk</sub> / f<sub>out</sub>  </p></blockquote><p>初值范围：<br>0000H～FFFFH 二进制数，最大为65536<br>0000H～9999H BCD码，最大为9999</p><h4 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h4><p>共有8位<br>| D7,D6 | D5,D4 | D3,D2,D1 | D0 |<br>| :—: | :—: | :——: | – |<br>| <strong>选中计数器</strong><br>00代表#0号计数器<br>01代表#1号计数器<br>10代表#2号计数器<br>11&nbsp;代表控制寄存器      | <strong>选择输入方式</strong><br>00代表锁存数据<br>01代表只输低8位<br>10代表只输高8位<br>11代表先低8位后高8位 | <strong>选择工作方式</strong><br>6个不同的二进制数<br>代表对应的工作方式 | <strong>选择输入数类型</strong><br>0代表二进制数类型<br>1代表BCD码数类型 |</p><blockquote><p>工作方式中：方式0代表跃变信号; 方式2代表分频器; 方式3代表<strong>方波发生器</strong>;<br><strong>注意</strong>：控制字必须写入到控制寄存器中  </p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> microcomputer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微机复习第八章</title>
+      <link href="/2018/01/04/chapter8Review/"/>
+      <url>/2018/01/04/chapter8Review/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter-8"><a href="#Chapter-8" class="headerlink" title="Chapter 8"></a>Chapter 8</h2><p>本章的主要内容是中断</p><h3 id="中断基本概念"><a href="#中断基本概念" class="headerlink" title="中断基本概念"></a>中断基本概念</h3><p>CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断<br><a id="more"></a></p><h5 id="中断类型码"><a href="#中断类型码" class="headerlink" title="中断类型码"></a>中断类型码</h5><p>范围0～255，前32个DOS保留  </p><h5 id="中断向量"><a href="#中断向量" class="headerlink" title="中断向量"></a>中断向量</h5><p>中断服务子程序的地址<br>共有4个字节，低位两字节保存子程序段内偏移地址，高位两字节保存子程序的段基址  </p><h5 id="中断向量表"><a href="#中断向量表" class="headerlink" title="中断向量表"></a>中断向量表</h5><p>地址空间的最低1KB空间保存256个中断向量，每个中断向量占有4字节  </p><blockquote><p>中断类型码 <strong>n</strong> 与中断向量表位置关系：<br>  4 × n + 0 ~ 4 × n + 3  </p></blockquote><h5 id="中断向量的读写"><a href="#中断向量的读写" class="headerlink" title="中断向量的读写"></a>中断向量的读写</h5><ol><li>程序员手动设置  </li><li>DOS 21H 子功能<ul><li>读<br>  入口参数：AH=35H，AL=中断类型码<br>  出口参数：ES=段基址，BX=偏移地址  </li><li>写<br>  入口参数：AH=25H，AL=中断类型码，DS=段基址，DX=偏移地址  </li></ul></li></ol><h5 id="中断响应处理"><a href="#中断响应处理" class="headerlink" title="中断响应处理"></a>中断响应处理</h5><ol><li>F寄存器入栈</li><li>清除IF，TF，屏蔽新的中断  </li><li>保护断点，CS：IP入栈，先CS</li><li>取出中断向量，写入CS，IP</li><li>执行中断服务子程序</li><li>恢复断点并返回</li></ol><p>中断服务子程序一般结构</p><pre class=" language-x86asm"><code class="language-x86asm">    ISR  PROC         保护现场        中断处理        恢复断点        中断返回    ISR  ENDP</code></pre><h5 id="中断系统功能"><a href="#中断系统功能" class="headerlink" title="中断系统功能"></a>中断系统功能</h5><ol><li>屏蔽、开放</li><li>中断判优</li><li>中断嵌套</li><li>响应自动转入子程序，完毕自动返回断点</li></ol><h3 id="8259A芯片"><a href="#8259A芯片" class="headerlink" title="8259A芯片"></a>8259A芯片</h3><p>CPU响应8259A中断请求过程：  </p><ol><li>当引脚IR0-IR7有中断请求时，8259中断请求寄存器相应位置1</li><li>通过中断屏蔽寄存器，未被屏蔽的请求送入优先权电路</li><li>优先权判优电路选出最高优先级的中断请求</li><li>CPU向8259发送两个负脉冲响应信号</li><li>第一个脉冲，8259中断服务寄存器相应位置1,中断请求寄存器相应位清0</li><li>第二个脉冲，8259将对应的中断类型码送入CPU</li><li>CPU取出中断向量，执行响应的子程序</li><li>CPU完成任务后，执行IRET之前，向8259发送中断结束命令，使中断服务寄存器ISR相应位清0</li></ol><h3 id="PC机中断系统"><a href="#PC机中断系统" class="headerlink" title="PC机中断系统"></a>PC机中断系统</h3><p>PC机8259A管理方式：  </p><ol><li>边沿触发</li><li>常规屏蔽</li><li>完全嵌套，及固定优先级</li><li>常规结束方式，结束须写入中断结束命令</li></ol><h6 id="响应非屏蔽中断条件"><a href="#响应非屏蔽中断条件" class="headerlink" title="响应非屏蔽中断条件"></a>响应非屏蔽中断条件</h6><ol><li>NMI引脚有中断请求，无DMA请求</li><li>CPU当前指令执行完毕</li></ol><h6 id="响应可屏蔽中断条件"><a href="#响应可屏蔽中断条件" class="headerlink" title="响应可屏蔽中断条件"></a>响应可屏蔽中断条件</h6><ol><li>INTR引脚有中断请求，NMI、DMA无请求</li><li>CPU当前指令执行完毕</li><li>处于开中断条件</li></ol><blockquote><p>请求级别：<code>DMA</code> &gt; <code>非屏蔽</code> &gt; <code>可屏蔽</code></p></blockquote><h5 id="中断源与中断类型码对照表"><a href="#中断源与中断类型码对照表" class="headerlink" title="中断源与中断类型码对照表"></a>中断源与中断类型码对照表</h5><table><thead><tr><th style="text-align:center">主8259</th><th style="text-align:center">中断源</th><th style="text-align:center">类型码</th><th style="text-align:center">从8259</th><th style="text-align:center">中断源</th><th style="text-align:center">类型码</th></tr></thead><tbody><tr><td style="text-align:center">IR0</td><td style="text-align:center">日时钟</td><td style="text-align:center">08H</td><td style="text-align:center">IR0</td><td style="text-align:center">实时中断</td><td style="text-align:center">70H</td></tr><tr><td style="text-align:center">IR1</td><td style="text-align:center">键盘</td><td style="text-align:center">09H</td><td style="text-align:center">IR1</td><td style="text-align:center">用户中断</td><td style="text-align:center">71H改向0AH</td></tr><tr><td style="text-align:center">IR2</td><td style="text-align:center">从8259</td><td style="text-align:center"></td><td style="text-align:center">IR2</td><td style="text-align:center">保留</td><td style="text-align:center">72H</td></tr><tr><td style="text-align:center">IR3</td><td style="text-align:center">辅串口</td><td style="text-align:center">0BH</td><td style="text-align:center">IR3</td><td style="text-align:center">保留</td><td style="text-align:center">73H</td></tr><tr><td style="text-align:center">IR4</td><td style="text-align:center">主串口</td><td style="text-align:center">0CH</td><td style="text-align:center">IR4</td><td style="text-align:center">保留</td><td style="text-align:center">74H</td></tr><tr><td style="text-align:center">IR5</td><td style="text-align:center">并口2</td><td style="text-align:center">0DH</td><td style="text-align:center">IR5</td><td style="text-align:center">协处理器</td><td style="text-align:center">75H</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> microcomputer </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>

@@ -1,0 +1,805 @@
+<!DOCTYPE HTML>
+<html lang="zh_CN">
+<head>
+    
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="微机复习第八章, AKTH BLOG">
+    <meta name="description" content="微型计算机接口Chapter 8本章的主要内容是中断
+中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断
+中断类型码范围0～255，前32个DOS保留  
+中断向量中断服务子程序的地址共有4个字">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>微机复习第八章 | AKTH BLOG</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+</head>
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="container">
+            <div class="nav-wrapper">
+                <div class="brand-logo">
+                    <a href="/" class="waves-effect waves-light">
+                        
+                        <img src="/medias/logo.png" class="logo-img hide-on-small-only">
+                        
+                        <span class="logo-span">AKTH BLOG</span>
+                    </a>
+                </div>
+                
+
+<a href="#" data-activates="mobile-nav" class="button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>Index</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>Tags</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>Categories</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>Archives</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>About</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>Friends</span>
+        </a>
+    </li>
+    
+    <li>
+        <a id="toggleSearch" class="waves-effect waves-light">
+            <i id="searchIcon" class="mdi-action-search"></i>
+        </a>
+    </li>
+
+</ul>
+
+<div class="side-nav" id="mobile-nav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">AKTH BLOG</div>
+        <div class="logo-desc">
+            
+            this site is used to record some piffling things in life.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                Index
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                Tags
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                Categories
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                Archives
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                About
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                Friends
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+
+    <div class="social-link"><a href="https://github.com/athlw" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:lwask9@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 528031299" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+</div>
+</div>
+
+            </div>
+        </div>
+
+        
+        <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewbox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+    </svg>
+</a>
+        
+    </nav>
+</header>
+
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        微机复习第八章
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
+                
+                <a href="/tags/microcomputer/" target="_blank">
+                    <span class="chip bg-color">microcomputer</span>
+                </a>
+                
+            </div>
+            
+            <div class="post-info">
+                
+                <span class="post-cate">
+                <!--<span class="post-cate" style="margin-right: 0px">-->
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/review/" class="post-category" target="_blank">
+                        review
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2018-01-04
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>Read <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter-8"><a href="#Chapter-8" class="headerlink" title="Chapter 8"></a>Chapter 8</h2><p>本章的主要内容是中断</p>
+<h3 id="中断基本概念"><a href="#中断基本概念" class="headerlink" title="中断基本概念"></a>中断基本概念</h3><p>CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断<br><a id="more"></a></p>
+<h5 id="中断类型码"><a href="#中断类型码" class="headerlink" title="中断类型码"></a>中断类型码</h5><p>范围0～255，前32个DOS保留  </p>
+<h5 id="中断向量"><a href="#中断向量" class="headerlink" title="中断向量"></a>中断向量</h5><p>中断服务子程序的地址<br>共有4个字节，低位两字节保存子程序段内偏移地址，高位两字节保存子程序的段基址  </p>
+<h5 id="中断向量表"><a href="#中断向量表" class="headerlink" title="中断向量表"></a>中断向量表</h5><p>地址空间的最低1KB空间保存256个中断向量，每个中断向量占有4字节  </p>
+<blockquote>
+<p>中断类型码 <strong>n</strong> 与中断向量表位置关系：<br>  4 × n + 0 ~ 4 × n + 3  </p>
+</blockquote>
+<h5 id="中断向量的读写"><a href="#中断向量的读写" class="headerlink" title="中断向量的读写"></a>中断向量的读写</h5><ol>
+<li>程序员手动设置  </li>
+<li>DOS 21H 子功能<ul>
+<li>读<br>  入口参数：AH=35H，AL=中断类型码<br>  出口参数：ES=段基址，BX=偏移地址  </li>
+<li>写<br>  入口参数：AH=25H，AL=中断类型码，DS=段基址，DX=偏移地址  </li>
+</ul>
+</li>
+</ol>
+<h5 id="中断响应处理"><a href="#中断响应处理" class="headerlink" title="中断响应处理"></a>中断响应处理</h5><ol>
+<li>F寄存器入栈</li>
+<li>清除IF，TF，屏蔽新的中断  </li>
+<li>保护断点，CS：IP入栈，先CS</li>
+<li>取出中断向量，写入CS，IP</li>
+<li>执行中断服务子程序</li>
+<li>恢复断点并返回</li>
+</ol>
+<p>中断服务子程序一般结构</p>
+<pre class=" language-x86asm"><code class="language-x86asm">    ISR  PROC 
+        保护现场
+
+        中断处理
+
+        恢复断点
+        中断返回
+    ISR  ENDP
+</code></pre>
+<h5 id="中断系统功能"><a href="#中断系统功能" class="headerlink" title="中断系统功能"></a>中断系统功能</h5><ol>
+<li>屏蔽、开放</li>
+<li>中断判优</li>
+<li>中断嵌套</li>
+<li>响应自动转入子程序，完毕自动返回断点</li>
+</ol>
+<h3 id="8259A芯片"><a href="#8259A芯片" class="headerlink" title="8259A芯片"></a>8259A芯片</h3><p>CPU响应8259A中断请求过程：  </p>
+<ol>
+<li>当引脚IR0-IR7有中断请求时，8259中断请求寄存器相应位置1</li>
+<li>通过中断屏蔽寄存器，未被屏蔽的请求送入优先权电路</li>
+<li>优先权判优电路选出最高优先级的中断请求</li>
+<li>CPU向8259发送两个负脉冲响应信号</li>
+<li>第一个脉冲，8259中断服务寄存器相应位置1,中断请求寄存器相应位清0</li>
+<li>第二个脉冲，8259将对应的中断类型码送入CPU</li>
+<li>CPU取出中断向量，执行响应的子程序</li>
+<li>CPU完成任务后，执行IRET之前，向8259发送中断结束命令，使中断服务寄存器ISR相应位清0</li>
+</ol>
+<h3 id="PC机中断系统"><a href="#PC机中断系统" class="headerlink" title="PC机中断系统"></a>PC机中断系统</h3><p>PC机8259A管理方式：  </p>
+<ol>
+<li>边沿触发</li>
+<li>常规屏蔽</li>
+<li>完全嵌套，及固定优先级</li>
+<li>常规结束方式，结束须写入中断结束命令</li>
+</ol>
+<h6 id="响应非屏蔽中断条件"><a href="#响应非屏蔽中断条件" class="headerlink" title="响应非屏蔽中断条件"></a>响应非屏蔽中断条件</h6><ol>
+<li>NMI引脚有中断请求，无DMA请求</li>
+<li>CPU当前指令执行完毕</li>
+</ol>
+<h6 id="响应可屏蔽中断条件"><a href="#响应可屏蔽中断条件" class="headerlink" title="响应可屏蔽中断条件"></a>响应可屏蔽中断条件</h6><ol>
+<li>INTR引脚有中断请求，NMI、DMA无请求</li>
+<li>CPU当前指令执行完毕</li>
+<li>处于开中断条件</li>
+</ol>
+<blockquote>
+<p>请求级别：<code>DMA</code> &gt; <code>非屏蔽</code> &gt; <code>可屏蔽</code></p>
+</blockquote>
+<h5 id="中断源与中断类型码对照表"><a href="#中断源与中断类型码对照表" class="headerlink" title="中断源与中断类型码对照表"></a>中断源与中断类型码对照表</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">主8259</th>
+<th style="text-align:center">中断源</th>
+<th style="text-align:center">类型码</th>
+<th style="text-align:center">从8259</th>
+<th style="text-align:center">中断源</th>
+<th style="text-align:center">类型码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">IR0</td>
+<td style="text-align:center">日时钟</td>
+<td style="text-align:center">08H</td>
+<td style="text-align:center">IR0</td>
+<td style="text-align:center">实时中断</td>
+<td style="text-align:center">70H</td>
+</tr>
+<tr>
+<td style="text-align:center">IR1</td>
+<td style="text-align:center">键盘</td>
+<td style="text-align:center">09H</td>
+<td style="text-align:center">IR1</td>
+<td style="text-align:center">用户中断</td>
+<td style="text-align:center">71H改向0AH</td>
+</tr>
+<tr>
+<td style="text-align:center">IR2</td>
+<td style="text-align:center">从8259</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">IR2</td>
+<td style="text-align:center">保留</td>
+<td style="text-align:center">72H</td>
+</tr>
+<tr>
+<td style="text-align:center">IR3</td>
+<td style="text-align:center">辅串口</td>
+<td style="text-align:center">0BH</td>
+<td style="text-align:center">IR3</td>
+<td style="text-align:center">保留</td>
+<td style="text-align:center">73H</td>
+</tr>
+<tr>
+<td style="text-align:center">IR4</td>
+<td style="text-align:center">主串口</td>
+<td style="text-align:center">0CH</td>
+<td style="text-align:center">IR4</td>
+<td style="text-align:center">保留</td>
+<td style="text-align:center">74H</td>
+</tr>
+<tr>
+<td style="text-align:center">IR5</td>
+<td style="text-align:center">并口2</td>
+<td style="text-align:center">0DH</td>
+<td style="text-align:center">IR5</td>
+<td style="text-align:center">协处理器</td>
+<td style="text-align:center">75H</td>
+</tr>
+</tbody>
+</table>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="http://yoursite.com" class="b-link-green">AKTH BLOG</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2018/01/04/chapter8Review/" class="b-link-green">微机复习第八章</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Previous</div>
+            <div class="card">
+                <a href="/2019/01/03/chapter11Reivew/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="微机复习第十一章">
+                        
+                        <span class="card-title">微机复习第十一章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
+8254芯片有3个独立的16位计数器。系统地址最后两位A1 A0指定了寄存器类型：
+
+00 选中#0号计数器  
+01 选中#1号计数器  
+10 选中</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/review/" class="post-category" target="_blank">
+                                    review
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/microcomputer/" target="_blank">
+                        <span class="chip bg-color">microcomputer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2018/01/04/chapter8Review/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="微机复习第八章">
+                        
+                        <span class="card-title">微机复习第八章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">微型计算机接口Chapter 8本章的主要内容是中断
+中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断
+中断类型码范围0～255，前32个DOS保留  
+中断向量中断服务子程序的地址共有4个字</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/review/" class="post-category" target="_blank">
+                                    review
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/microcomputer/" target="_blank">
+                        <span class="chip bg-color">microcomputer</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+			
+                <br>
+                <span id="busuanzi_container_site_pv">
+                    本站总访问量 <span id="busuanzi_value_site_pv" style="color: #fff;"></span> 次,&nbsp;
+                </span>
+				<span id="busuanzi_container_site_uv">
+                    访客数 <span id="busuanzi_value_site_uv" style="color: #fff;"></span> 人.
+                </span>
+			
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis"><a href="https://github.com/athlw" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <i class="fa fa-github"></i>
+</a>
+<a href="mailto:lwask9@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <i class="fa fa-envelope-open"></i>
+</a>
+<a href="#!" class="tooltipped" data-tooltip="QQ联系我: 528031299" data-position="top" data-delay="50">
+    <i class="fa fa-qq"></i>
+</a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title">Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword" class="search-input" autofocus>
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/js/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
