@@ -5,13 +5,10 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="微机复习第十一章, AKTH BLOG">
-    <meta name="description" content="微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
-8254芯片有3个独立的16位计数器。系统地址最后两位A1 A0指定了寄存器类型：
+    <meta name="keywords" content="AKTH BLOG">
+    <meta name="description" content="微型计算机接口Chapter9 串行通信并行通信多用于计算机内部，或者计算机与近距离外设串行通信常用于计算机与低速外设或计算机之间传输距离较远时，利用通信线路  
 
-00 选中#0号计数器  
-01 选中#1号计数器  
-10 选中">
+串行异步通信 与 串行同步通信 区别：  异步通信：一帧字符是用起始位，停">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>微机复习第十一章 | AKTH BLOG</title>
+    <title>AKTH BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +272,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        微机复习第十一章
+                        
                     </div>
                 </div>
             </div>
@@ -299,29 +296,11 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/microcomputer/" target="_blank">
-                    <span class="chip bg-color">microcomputer</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                <!--<span class="post-cate" style="margin-right: 0px">-->
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/review/" class="post-category" target="_blank">
-                        review
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-03
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-09
                 </span>
 				
 				
@@ -333,33 +312,81 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="微型计算机接口技术"><a href="#微型计算机接口技术" class="headerlink" title="微型计算机接口技术"></a>微型计算机接口技术</h1><h2 id="Chapter-11"><a href="#Chapter-11" class="headerlink" title="Chapter 11"></a>Chapter 11</h2><p>本章主要内容是可编程定时器/计数器 <strong>8254芯片</strong></p>
-<h4 id="8254芯片"><a href="#8254芯片" class="headerlink" title="8254芯片"></a>8254芯片</h4><p>有3个独立的16位计数器。<br>系统地址最后两位A1 A0指定了寄存器类型：</p>
-<ol>
-<li>00 选中#0号计数器  </li>
-<li>01 选中#1号计数器  </li>
-<li>10 选中#2号计数器  </li>
-<li>11 选中控制寄存器   </li>
-</ol>
-<p>主要有三个功能：  </p>
-<ol>
-<li>日时钟中断(对应 <strong>#0</strong> 号计数器)  </li>
-<li>存储器动态刷新(对应 <strong>#1</strong> 号计数器)  </li>
-<li>发声系统声源(对应 <strong>#2</strong> 号计数器)</li>
-</ol>
-<p>要想使8254正常工作，需要按照一定的流程对他进行设置：  </p>
-<ol>
-<li>向控制寄存器写入控制字  </li>
-<li>向需要操作的计数器写入初值</li>
-</ol>
-<h4 id="初值"><a href="#初值" class="headerlink" title="初值"></a>初值</h4><p>计算公式为：</p>
+                <h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter9-串行通信"><a href="#Chapter9-串行通信" class="headerlink" title="Chapter9 串行通信"></a>Chapter9 串行通信</h2><p>并行通信多用于计算机内部，或者计算机与近距离外设<br>串行通信常用于计算机与低速外设或计算机之间<br>传输距离较远时，利用通信线路  </p>
 <blockquote>
-<p>N = f<sub>clk</sub> / f<sub>out</sub>  </p>
+<p>串行异步通信 与 串行同步通信 区别：<br>  异步通信：一帧字符是用起始位，停止位完成收发同步.  这种通信方式中，字符间隔任意，所以称为异步通信。<br>  同步通信：通过同步字符来完成收发双方同步</p>
 </blockquote>
-<p>初值范围：<br>0000H～FFFFH 二进制数，最大为65536<br>0000H～9999H BCD码，最大为9999</p>
-<h4 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h4><p>共有8位<br>| D7,D6 | D5,D4 | D3,D2,D1 | D0 |<br>| :—: | :—: | :——: | – |<br>| <strong>选中计数器</strong><br>00代表#0号计数器<br>01代表#1号计数器<br>10代表#2号计数器<br>11&nbsp;代表控制寄存器      | <strong>选择输入方式</strong><br>00代表锁存数据<br>01代表只输低8位<br>10代表只输高8位<br>11代表先低8位后高8位 | <strong>选择工作方式</strong><br>6个不同的二进制数<br>代表对应的工作方式 | <strong>选择输入数类型</strong><br>0代表二进制数类型<br>1代表BCD码数类型 |</p>
+<h4 id="串行数据传输方式"><a href="#串行数据传输方式" class="headerlink" title="串行数据传输方式"></a>串行数据传输方式</h4><p>共有3种方式：</p>
+<ol>
+<li>单工：数据按固定的一个方向传送  </li>
+<li>半双工：收发双方都可接受或发送数据，但不可在两个方向上同时传送  </li>
+<li>全双工：收发双方可同时发送或接收数据  </li>
+</ol>
+<h4 id="串行异步通信"><a href="#串行异步通信" class="headerlink" title="串行异步通信"></a>串行异步通信</h4><blockquote>
+<p>要想正常通信，收发双方的<strong>帧数据格式、通信速率</strong>必须一致  </p>
+</blockquote>
+<p>帧数据格式如下：</p>
+<table>
+<thead>
+<tr>
+<th>起始位</th>
+<th style="text-align:center">数据位</th>
+<th>校验位</th>
+<th>停止位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td style="text-align:center">数据低位~数据高位<br>长度5~8位</td>
+<td>1 位</td>
+<td>1、1.5、2位均可</td>
+</tr>
+</tbody>
+</table>
+<h4 id="RS-232通信标准"><a href="#RS-232通信标准" class="headerlink" title="RS-232通信标准"></a>RS-232通信标准</h4><p>RS-232采用负逻辑，逻辑1为-15v~-3v，逻辑0为+3v~+15v。<br>TTL采用正逻辑<br>两者之间转换需要电平转换器：MC1488 将TTL转为RS-232，MC1489 将RS-232转为TTL</p>
+<h3 id="8250芯片"><a href="#8250芯片" class="headerlink" title="8250芯片"></a>8250芯片</h3><p>内部共有3组器件：  </p>
+<ol>
+<li>传输数据型：发送保持寄存器，接收缓冲寄存器</li>
+<li>控制寄存器：通信线控制寄存器，除数寄存器，MODEM控制寄存器，中断允许寄存器</li>
+<li>状态寄存器：通信线状态寄存器，MODEM状态寄存器，中断识别寄存器</li>
+</ol>
 <blockquote>
-<p>工作方式中：方式0代表跃变信号; 方式2代表分频器; 方式3代表<strong>方波发生器</strong>;<br><strong>注意</strong>：控制字必须写入到控制寄存器中  </p>
+<p>16 x 波特率 = 1843200 / 分频系数(即除数)  </p>
+</blockquote>
+<h5 id="8250-内部寄存器功能"><a href="#8250-内部寄存器功能" class="headerlink" title="8250 内部寄存器功能"></a>8250 内部寄存器功能</h5><ol>
+<li><p>发送保持寄存器<br> 保存CPU送出的并行数据，转移至发送移位寄存器，发送移位寄存器自动添加起始位，校验位，停止位，并将并行数据转成串行数据</p>
+</li>
+<li><p>接收缓冲寄存器<br> 外部串行数据被逐位存入接收移位寄存器，自动校验，并去掉起始位，校验位，停止位。接着将数据存入接受缓冲寄存器</p>
+</li>
+<li><p>通信线状态寄存器<br> 提供数据传输的状态信息  </p>
+<p> | D7 | D6 | D5 | D4 | D3,D2,D1 | D0 |<br> | – | – | – | – | ——– | – |<br> | 0 | 发送移位寄存器空闲标志 | 发送保持寄存器空闲标志 | 错误标志 | 接受缓冲器满标志 |</p>
+</li>
+<li><p>中断允许寄存器<br> D7-D4恒为0，D3-D0表示8250四级中断是否允许</p>
+</li>
+<li><p>中断识别寄存器<br> CPU识别中断源</p>
+</li>
+<li><p>MODEM控制寄存器<br> D0-D3的状态直接控制相关引脚的输出电平<br> D3=1，8250能送出中断请求<br> D4位通常置0，8250正常收发工作方式。<strong>内环自检工作方式</strong>时置为1  </p>
+</li>
+<li><p>除数寄存器<br> 16位寄存器，存放分频系数，写入时分两次写入，每次写8位<br> 此寄存器与别的寄存器共用端口地址，写入时，须将<strong>通信线控制寄存器D7置1</strong></p>
+</li>
+<li><p>通信线控制寄存器<br> 规定串行异步通信的格式  </p>
+<p> | D7 | D6 | D5,D4,D3 | D2 | D1,D0 |<br> | :–: | :–: | :—: | :–: | :–: |<br> | 寻址位<br>1 访问除数寄存器<br>0 访问非除数 | 中止位设置<br>1 输出长时间终止信号<br>0 正常通信 | 校验位设置<br>001 奇校验<br>011 偶校验<br>101 校验位恒为1<br>111 校验位恒为0 | 停止位设置<br>0:1位<br>1(D1D0=00):1.5位<br>1(D1D0!=00):2位 | 数据位设置<br>00:5位<br>01:6位<br>10:7位<br>11:8位 |</p>
+</li>
+<li><p>MODEM状态寄存器<br> 反应8250余通信设备之间联络信号的当前状态及变化情况</p>
+</li>
+</ol>
+<h4 id="8250初始化编程"><a href="#8250初始化编程" class="headerlink" title="8250初始化编程"></a>8250初始化编程</h4><ol>
+<li>通信线控制寄存器 &lt;- 80H，以便写入除数寄存器</li>
+<li>分别向除数寄存器高8位，低8位写入数据，确定通信速率</li>
+<li>向通信线控制寄存器写入数据格式</li>
+<li>设置中断是否允许，允许则中断允许寄存器相应位为 1</li>
+<li>设置MODEM控制寄存器<br> D3=1，允许8250送出中断请求； D3=0，查询方式  <pre><code>         D4=1，内环自检；D4=0，正常通信
+</code></pre></li>
+</ol>
+<blockquote>
+<p>8250查询方式下接收和发送程序编程  </p>
+<p>  发送数据前，读通信线状态寄存器获取发送保持或移位寄存器是否空闲<br>  接收数据前，读接受通信线状态寄存器获取接受缓冲寄存器是否已经收到 1 帧数据</p>
 </blockquote>
 
             </div>
@@ -499,7 +526,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">AKTH BLOG</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/03/chapter11Reivew/" class="b-link-green">微机复习第十一章</a>
+                    <a href="/2019/01/09/chapter9/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -523,28 +550,67 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2019/01/09/OSchapter7/">
+                <a href="/2019/01/09/chapter10/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统复习第七章">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">操作系统复习第七章</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">操作系统复习操作系统第七章文件系统概念文件系统应具备的功能：  
-1. 辅存管理
-2. 按名存取
-3. 文件查找
-4. 文件存取方式
-5. 文件共享和保护
-文件结构文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备
-1. 文件</div>
+                    <div class="summary">微型计算机接口Chapter10 并行通信并行通信同时传输数据所有位，速度快，但硬件开销大，不适合远距离传输。
+一般并行接口应具备功能:
+
+具有一/多个端口
+每个端口可与CPU，I/O设备进行联络控制
+CPU与I/O接口可用无条件，查询，中</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            akth
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/09/OSchapter4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="操作系统第四章">
+                        
+                        <span class="card-title">操作系统第四章</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">操作系统复习操作系统第四章进程关系同步和互斥，互斥是同步的特例  
+互斥是相同进程之间，又称间接制约同步是不同进程之间，又称直接制约    
+临界区使用临界区原则：  
+
+有空让进
+无空等待
+多中择一
+有限等待
+让权等待
+
+信号量与PV操作</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -562,52 +628,6 @@
                     
                     <a href="/tags/OS/" target="_blank">
                         <span class="chip bg-color">OS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Next</div>
-            <div class="card">
-                <a href="/2018/01/04/chapter8Review/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="微机复习第八章">
-                        
-                        <span class="card-title">微机复习第八章</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">微型计算机接口Chapter 8本章的主要内容是中断
-中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断
-中断类型码范围0～255，前32个DOS保留  
-中断向量中断服务子程序的地址共有4个字</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-04
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/microcomputer/" target="_blank">
-                        <span class="chip bg-color">microcomputer</span>
                     </a>
                     
                 </div>

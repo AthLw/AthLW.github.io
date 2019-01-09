@@ -5,13 +5,15 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="微机复习第十一章, AKTH BLOG">
-    <meta name="description" content="微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
-8254芯片有3个独立的16位计数器。系统地址最后两位A1 A0指定了寄存器类型：
-
-00 选中#0号计数器  
-01 选中#1号计数器  
-10 选中">
+    <meta name="keywords" content="操作系统复习第七章, AKTH BLOG">
+    <meta name="description" content="操作系统复习操作系统第七章文件系统概念文件系统应具备的功能：  
+1. 辅存管理
+2. 按名存取
+3. 文件查找
+4. 文件存取方式
+5. 文件共享和保护
+文件结构文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备
+1. 文件">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>微机复习第十一章 | AKTH BLOG</title>
+    <title>操作系统复习第七章 | AKTH BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +277,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        微机复习第十一章
+                        操作系统复习第七章
                     </div>
                 </div>
             </div>
@@ -301,8 +303,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/microcomputer/" target="_blank">
-                    <span class="chip bg-color">microcomputer</span>
+                <a href="/tags/OS/" target="_blank">
+                    <span class="chip bg-color">OS</span>
                 </a>
                 
             </div>
@@ -321,7 +323,7 @@
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-03
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-09
                 </span>
 				
 				
@@ -333,34 +335,62 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="微型计算机接口技术"><a href="#微型计算机接口技术" class="headerlink" title="微型计算机接口技术"></a>微型计算机接口技术</h1><h2 id="Chapter-11"><a href="#Chapter-11" class="headerlink" title="Chapter 11"></a>Chapter 11</h2><p>本章主要内容是可编程定时器/计数器 <strong>8254芯片</strong></p>
-<h4 id="8254芯片"><a href="#8254芯片" class="headerlink" title="8254芯片"></a>8254芯片</h4><p>有3个独立的16位计数器。<br>系统地址最后两位A1 A0指定了寄存器类型：</p>
-<ol>
-<li>00 选中#0号计数器  </li>
-<li>01 选中#1号计数器  </li>
-<li>10 选中#2号计数器  </li>
-<li>11 选中控制寄存器   </li>
+                <h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="操作系统第七章"><a href="#操作系统第七章" class="headerlink" title="操作系统第七章"></a>操作系统第七章</h2><h3 id="文件系统概念"><a href="#文件系统概念" class="headerlink" title="文件系统概念"></a>文件系统概念</h3><p>文件系统应具备的功能：  </p>
+<pre><code>1. 辅存管理
+2. 按名存取
+3. 文件查找
+4. 文件存取方式
+5. 文件共享和保护
+</code></pre><h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备</p>
+<h4 id="1-文件逻辑结构"><a href="#1-文件逻辑结构" class="headerlink" title="1. 文件逻辑结构"></a>1. 文件逻辑结构</h4><ol>
+<li>流式文件<br> 无结构文件。<br> 在Linux中，字符设备也被看做流式文件  </li>
+<li>记录式文件<br> 有结构式文件  </li>
 </ol>
-<p>主要有三个功能：  </p>
-<ol>
-<li>日时钟中断(对应 <strong>#0</strong> 号计数器)  </li>
-<li>存储器动态刷新(对应 <strong>#1</strong> 号计数器)  </li>
-<li>发声系统声源(对应 <strong>#2</strong> 号计数器)</li>
+<h4 id="2-文件存取方法"><a href="#2-文件存取方法" class="headerlink" title="2. 文件存取方法"></a>2. 文件存取方法</h4><ol>
+<li>顺序存取  </li>
+<li>直接存取</li>
+<li>索引存取</li>
 </ol>
-<p>要想使8254正常工作，需要按照一定的流程对他进行设置：  </p>
-<ol>
-<li>向控制寄存器写入控制字  </li>
-<li>向需要操作的计数器写入初值</li>
+<h4 id="3-文件物理结构"><a href="#3-文件物理结构" class="headerlink" title="3. 文件物理结构"></a>3. 文件物理结构</h4><ol>
+<li><p>连续文件  </p>
+</li>
+<li><p>串联文件  </p>
+</li>
+<li><p>索引文件  </p>
+</li>
 </ol>
-<h4 id="初值"><a href="#初值" class="headerlink" title="初值"></a>初值</h4><p>计算公式为：</p>
-<blockquote>
-<p>N = f<sub>clk</sub> / f<sub>out</sub>  </p>
-</blockquote>
-<p>初值范围：<br>0000H～FFFFH 二进制数，最大为65536<br>0000H～9999H BCD码，最大为9999</p>
-<h4 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h4><p>共有8位<br>| D7,D6 | D5,D4 | D3,D2,D1 | D0 |<br>| :—: | :—: | :——: | – |<br>| <strong>选中计数器</strong><br>00代表#0号计数器<br>01代表#1号计数器<br>10代表#2号计数器<br>11&nbsp;代表控制寄存器      | <strong>选择输入方式</strong><br>00代表锁存数据<br>01代表只输低8位<br>10代表只输高8位<br>11代表先低8位后高8位 | <strong>选择工作方式</strong><br>6个不同的二进制数<br>代表对应的工作方式 | <strong>选择输入数类型</strong><br>0代表二进制数类型<br>1代表BCD码数类型 |</p>
-<blockquote>
-<p>工作方式中：方式0代表跃变信号; 方式2代表分频器; 方式3代表<strong>方波发生器</strong>;<br><strong>注意</strong>：控制字必须写入到控制寄存器中  </p>
-</blockquote>
+<h4 id="4-文件存储设备"><a href="#4-文件存储设备" class="headerlink" title="4. 文件存储设备"></a>4. 文件存储设备</h4><ol>
+<li>顺序存储设备<br> 磁带是最典型的顺序存取设备  </li>
+<li>直接存取设备<br> 磁盘是最典型的直接存取设备  </li>
+</ol>
+<h3 id="文件目录管理的基本要求"><a href="#文件目录管理的基本要求" class="headerlink" title="文件目录管理的基本要求"></a>文件目录管理的基本要求</h3><ol>
+<li>实现按名存取  </li>
+<li>提高文件检索速度  </li>
+<li>文件共享  </li>
+<li>允许文件重名</li>
+</ol>
+<p>文件控制块至少包括：  </p>
+<ol>
+<li>文件名  </li>
+<li>文件在存储器上的物理地址  </li>
+<li>文件逻辑结构<br>…</li>
+</ol>
+<h4 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h4><ol>
+<li>单级目录  </li>
+<li>二级目录<br> <strong>实现了文件重名</strong></li>
+<li>树目录<br> 优点：文件可重名、检索速度快、易于规定权限  </li>
+</ol>
+<h4 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h4><ol>
+<li>采用链接方法</li>
+<li>采用基本文件目录</li>
+</ol>
+<h3 id="文件安全"><a href="#文件安全" class="headerlink" title="文件安全"></a>文件安全</h3><p>实现方式共有4种：  </p>
+<ol>
+<li>存取控制矩阵</li>
+<li>存取控制表<br> 如：’-rwxr-xr-x’</li>
+<li>口令</li>
+<li>密码</li>
+</ol>
 
             </div>
             <hr>
@@ -499,7 +529,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">AKTH BLOG</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/03/chapter11Reivew/" class="b-link-green">微机复习第十一章</a>
+                    <a href="/2019/01/09/OSchapter7/" class="b-link-green">操作系统复习第七章</a>
                 </p>
             </div>
         </div>
@@ -523,24 +553,27 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2019/01/09/OSchapter7/">
+                <a href="/2019/01/09/OSchapter4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统复习第七章">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="操作系统第四章">
                         
-                        <span class="card-title">操作系统复习第七章</span>
+                        <span class="card-title">操作系统第四章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">操作系统复习操作系统第七章文件系统概念文件系统应具备的功能：  
-1. 辅存管理
-2. 按名存取
-3. 文件查找
-4. 文件存取方式
-5. 文件共享和保护
-文件结构文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备
-1. 文件</div>
+                    <div class="summary">操作系统复习操作系统第四章进程关系同步和互斥，互斥是同步的特例  
+互斥是相同进程之间，又称间接制约同步是不同进程之间，又称直接制约    
+临界区使用临界区原则：  
+
+有空让进
+无空等待
+多中择一
+有限等待
+让权等待
+
+信号量与PV操作</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
@@ -573,23 +606,25 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/01/04/chapter8Review/">
+                <a href="/2019/01/03/chapter11Reivew/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="微机复习第八章">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="微机复习第十一章">
                         
-                        <span class="card-title">微机复习第八章</span>
+                        <span class="card-title">微机复习第十一章</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">微型计算机接口Chapter 8本章的主要内容是中断
-中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断
-中断类型码范围0～255，前32个DOS保留  
-中断向量中断服务子程序的地址共有4个字</div>
+                    <div class="summary">微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
+8254芯片有3个独立的16位计数器。系统地址最后两位A1 A0指定了寄存器类型：
+
+00 选中#0号计数器  
+01 选中#1号计数器  
+10 选中</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
                             </span>
                         <span class="publish-author">
                             

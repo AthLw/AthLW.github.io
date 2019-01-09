@@ -5,8 +5,28 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Category: review, AKTH BLOG">
-    <meta name="description" content="Category: review | AKTH BLOG">
+    <meta name="keywords" content="操作系统复习, AKTH BLOG">
+    <meta name="description" content="操作系统复习操作系统第六章设备管理设备分类
+按速度分：  
+
+低速设备
+中速设备
+高速设备
+
+按单位分：  
+
+块设备
+字符设备
+
+按资源分配角度：  
+
+独占设备
+共享设备
+虚拟设备
+
+设备管理任务目标
+实现设备并行性从而提高系统利用率
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +34,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Category: review | AKTH BLOG</title>
+    <title>操作系统复习 | AKTH BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -266,77 +286,321 @@
     </nav>
 </header>
 
-<div class="bg-cover  about-cover" style="background-image: url('/medias/cover.jpg')">
+
+
+
+
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container">
         <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+            <div class="col s12 m12 l12">
                 <div class="brand">
-                    <div class="title center-align">
-                    
-                        AKTH
-                    
-                    </div>
-
-                    <div class="description center-align">
-                    
-                        this site is used to record some piffling things in life.
-                    
+                    <div class="description center-align post-title">
+                        操作系统复习
                     </div>
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 
-<script>
-// Dynamically switch banner pictures every day.
-$('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
-</script>
 
-<main class="content">
+
+<main class="container content">
 
     
-
-<div id="category-cloud" class="container chip-container">
+    <!-- 文章内容详情 -->
+<div id="artDetail">
     <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">Post Categories</div>
-            <div class="tag-chips">
+        <div class="card-content article-info">
+            
+            <div class="article-tag">
                 
-                
-                
-                <a href="/categories/review/" title="review: 5">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active " style="background-color: #F9EBEA;">review
-                        <span class="tag-length">5</span>
-                    </span>
+                <a href="/tags/OS/" target="_blank">
+                    <span class="chip bg-color">OS</span>
                 </a>
                 
+            </div>
+            
+            <div class="post-info">
                 
+                <span class="post-cate">
+                <!--<span class="post-cate" style="margin-right: 0px">-->
+                    <i class="fa fa-bookmark fa-fw icon-category"></i>
+                    
+                    <a href="/categories/review/" class="post-category" target="_blank">
+                        review
+                    </a>
+                    
+                </span>
+                
+
+                <span class="post-date">
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-09
+                </span>
+				
+				
+                    <span id="busuanzi_container_page_pv" class="post-read">
+                    <i class="fa fa-eye fa-fw"></i>Read <span id="busuanzi_value_page_pv"></span>
+				
+            </span></div>
+        </div>
+        <hr>
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="操作系统第六章"><a href="#操作系统第六章" class="headerlink" title="操作系统第六章"></a>操作系统第六章</h2><h3 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h3><p>设备分类</p>
+<p>按速度分：  </p>
+<ol>
+<li>低速设备</li>
+<li>中速设备</li>
+<li>高速设备</li>
+</ol>
+<p>按单位分：  </p>
+<ol>
+<li>块设备</li>
+<li>字符设备</li>
+</ol>
+<p>按资源分配角度：  </p>
+<ol>
+<li>独占设备</li>
+<li>共享设备</li>
+<li>虚拟设备</li>
+</ol>
+<h4 id="设备管理任务目标"><a href="#设备管理任务目标" class="headerlink" title="设备管理任务目标"></a>设备管理任务目标</h4><ol>
+<li>实现设备并行性从而提高系统利用率</li>
+<li>设备动态分配，从而提高设备利用率</li>
+<li>采用多种缓冲，从而缩小cpu和设备速度差异</li>
+<li>屏蔽设备物理特性  </li>
+</ol>
+<h3 id="I-O方式"><a href="#I-O方式" class="headerlink" title="I/O方式"></a>I/O方式</h3><ol>
+<li>直接控制方式</li>
+<li>中断方式</li>
+<li>DMA方式<br> 以数据块为单位</li>
+<li>通道<br> 以数据块为单位<br> 是独立于cpu的专用处理机</li>
+</ol>
+<h3 id="缓冲技术"><a href="#缓冲技术" class="headerlink" title="缓冲技术"></a>缓冲技术</h3><p>目的：  </p>
+<ol>
+<li>改善cpu与外围设备之间速度不匹配的矛盾  </li>
+<li>减少I/O对cpu中断次数</li>
+<li>提高cpu和I/O设备并行性</li>
+</ol>
+<p>常用的缓冲区技术有：单缓冲、双缓冲、多缓冲（循环缓冲、缓冲池）</p>
+<h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><ol>
+<li><p>物理结构<br>磁盘是一种直接存取设备、又叫随机存取设备</p>
+</li>
+<li><p>磁盘访问时间</p>
+<ol>
+<li>寻道时间</li>
+<li>旋转延迟时间</li>
+<li>传输时间</li>
+</ol>
+</li>
+</ol>
+<h4 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h4><ol>
+<li>先来先服务</li>
+<li>最短寻道时间优先</li>
+<li>扫描算法<br> 消除了饥饿现象</li>
+<li>循环扫描算法</li>
+</ol>
+<h4 id="设备分配"><a href="#设备分配" class="headerlink" title="设备分配"></a>设备分配</h4><p>数据结构：  </p>
+<ol>
+<li>设备控制表（DCT）</li>
+<li>系统设备表（SDT）</li>
+<li>控制器控制表（COCT）</li>
+<li>通道控制表（CHCT）</li>
+</ol>
+<h3 id="虚拟设备"><a href="#虚拟设备" class="headerlink" title="虚拟设备"></a>虚拟设备</h3><p>SPOOLing系统</p>
+<ol>
+<li><p>组成部分</p>
+<ul>
+<li>输入井、输出井<br>  外存大缓冲区</li>
+<li>输入缓冲区、输出缓冲区<br>  内存</li>
+<li>输入进程、输出进程</li>
+</ul>
+</li>
+<li><p>原理<br> 把一个共享的硬盘改造成若干台输入、输出设备。这样的设备称为虚拟设备</p>
+</li>
+<li><p>特点</p>
+<ul>
+<li>提高了I/O速度</li>
+<li>设备不被任何进程独占</li>
+<li>实现了虚拟设备</li>
+</ul>
+</li>
+</ol>
+
+            </div>
+            <hr>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff;
+        background-color: #22AB38;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff;
+        background-color: #019FE8;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a class="reward-link btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs">
+                        <li class="tab wechat-tab waves-effect waves-light"><a class="active" href="#wechat">微信</a></li>
+                        <li class="tab alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                    </ul>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+    $(function () {
+        $('#reward .reward-link').on('click', function () {
+            $('#rewardModal').openModal();
+        });
+
+        $('#rewardModal .close').on('click', function () {
+            $('#rewardModal').closeModal();
+        });
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">Reprint please specify: </span>
+                    <a href="http://yoursite.com" class="b-link-green">AKTH BLOG</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/01/09/OSchapter6/" class="b-link-green">操作系统复习</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/01/09/OSchapter6/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="操作系统复习">
-                            
-                            <span class="card-title">操作系统复习</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">操作系统复习操作系统第六章设备管理设备分类
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">Current</div>
+            <div class="card">
+                <a href="/2019/01/09/OSchapter6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="操作系统复习">
+                        
+                        <span class="card-title">操作系统复习</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">操作系统复习操作系统第六章设备管理设备分类
 按速度分：  
 
 低速设备
@@ -348,214 +612,90 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 块设备
 字符设备
 
-按资源分</div>
-                        <div class="publish-info">
+按资源分配角度：  
+
+独占设备
+共享设备
+虚拟设备
+
+设备管理任务目标
+实现设备并行性从而提高系统利用率
+</div>
+                    <div class="publish-info">
                             <span class="publish-date">
                                 <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
                             </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/review/" class="post-category" target="_blank">
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/review/" class="post-category" target="_blank">
                                     review
                                 </a>
-                                
-                                
-                            </span>
-                        </div>
+                            
+                            
+                        </span>
                     </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/OS/" target="_blank">
-                            <span class="chip bg-color">OS</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/01/09/OSchapter4/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="操作系统第四章">
-                            
-                            <span class="card-title">操作系统第四章</span>
-                        </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OS/" target="_blank">
+                        <span class="chip bg-color">OS</span>
                     </a>
-                    <div class="card-content article-content">
-                        <div class="summary">操作系统复习操作系统第四章进程关系同步和互斥，互斥是同步的特例  
-互斥是相同进程之间，又称间接制约同步是不同进程之间，又称直接制约    </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/OS/" target="_blank">
-                            <span class="chip bg-color">OS</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
+                
             </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/01/09/OSchapter7/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统复习第七章">
-                            
-                            <span class="card-title">操作系统复习第七章</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">操作系统复习操作系统第七章文件系统概念文件系统应具备的功能：  
-1. 辅存管理
-2. 按名存取
-3. 文件查找
-4. 文件存取方式
-5. </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/OS/" target="_blank">
-                            <span class="chip bg-color">OS</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2019/01/03/chapter11Reivew/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="微机复习第十一章">
-                            
-                            <span class="card-title">微机复习第十一章</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
-8254芯片有3个独立的16位计数器。系统地址最后两</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/microcomputer/" target="_blank">
-                            <span class="chip bg-color">microcomputer</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/01/04/chapter8Review/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="微机复习第八章">
-                            
-                            <span class="card-title">微机复习第八章</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary">微型计算机接口Chapter 8本章的主要内容是中断
-中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序</div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fa fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/microcomputer/" target="_blank">
-                            <span class="chip bg-color">microcomputer</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
-    </article>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2019/01/09/OSchapter1-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">操作系统chapter1 操作系统概论操作系统定义：一组用于控制和管理计算机资源的程序集合  
+计算机资源分为两类：  
+
+硬件资源：处理器，设备，存储器等  
+信息资源：程序和数据  
+
+1.1 操作系统功能
+处理器管理  
+存储管理  </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            akth
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+    
+
 </main>
 
 

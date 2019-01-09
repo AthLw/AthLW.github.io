@@ -4,6 +4,133 @@
   
     
     <entry>
+      <title>操作系统复习</title>
+      <link href="/2019/01/09/OSchapter6/"/>
+      <url>/2019/01/09/OSchapter6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="操作系统第六章"><a href="#操作系统第六章" class="headerlink" title="操作系统第六章"></a>操作系统第六章</h2><h3 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h3><p>设备分类</p><p>按速度分：  </p><ol><li>低速设备</li><li>中速设备</li><li>高速设备</li></ol><p>按单位分：  </p><ol><li>块设备</li><li>字符设备</li></ol><p>按资源分配角度：  </p><ol><li>独占设备</li><li>共享设备</li><li>虚拟设备</li></ol><h4 id="设备管理任务目标"><a href="#设备管理任务目标" class="headerlink" title="设备管理任务目标"></a>设备管理任务目标</h4><ol><li>实现设备并行性从而提高系统利用率</li><li>设备动态分配，从而提高设备利用率</li><li>采用多种缓冲，从而缩小cpu和设备速度差异</li><li>屏蔽设备物理特性  </li></ol><h3 id="I-O方式"><a href="#I-O方式" class="headerlink" title="I/O方式"></a>I/O方式</h3><ol><li>直接控制方式</li><li>中断方式</li><li>DMA方式<br> 以数据块为单位</li><li>通道<br> 以数据块为单位<br> 是独立于cpu的专用处理机</li></ol><h3 id="缓冲技术"><a href="#缓冲技术" class="headerlink" title="缓冲技术"></a>缓冲技术</h3><p>目的：  </p><ol><li>改善cpu与外围设备之间速度不匹配的矛盾  </li><li>减少I/O对cpu中断次数</li><li>提高cpu和I/O设备并行性</li></ol><p>常用的缓冲区技术有：单缓冲、双缓冲、多缓冲（循环缓冲、缓冲池）</p><h3 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h3><ol><li><p>物理结构<br>磁盘是一种直接存取设备、又叫随机存取设备</p></li><li><p>磁盘访问时间</p><ol><li>寻道时间</li><li>旋转延迟时间</li><li>传输时间</li></ol></li></ol><h4 id="磁盘调度算法"><a href="#磁盘调度算法" class="headerlink" title="磁盘调度算法"></a>磁盘调度算法</h4><ol><li>先来先服务</li><li>最短寻道时间优先</li><li>扫描算法<br> 消除了饥饿现象</li><li>循环扫描算法</li></ol><h4 id="设备分配"><a href="#设备分配" class="headerlink" title="设备分配"></a>设备分配</h4><p>数据结构：  </p><ol><li>设备控制表（DCT）</li><li>系统设备表（SDT）</li><li>控制器控制表（COCT）</li><li>通道控制表（CHCT）</li></ol><h3 id="虚拟设备"><a href="#虚拟设备" class="headerlink" title="虚拟设备"></a>虚拟设备</h3><p>SPOOLing系统</p><ol><li><p>组成部分</p><ul><li>输入井、输出井<br>  外存大缓冲区</li><li>输入缓冲区、输出缓冲区<br>  内存</li><li>输入进程、输出进程</li></ul></li><li><p>原理<br> 把一个共享的硬盘改造成若干台输入、输出设备。这样的设备称为虚拟设备</p></li><li><p>特点</p><ul><li>提高了I/O速度</li><li>设备不被任何进程独占</li><li>实现了虚拟设备</li></ul></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/01/09/OSchapter1-2/"/>
+      <url>/2019/01/09/OSchapter1-2/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="chapter1-操作系统概论"><a href="#chapter1-操作系统概论" class="headerlink" title="chapter1 操作系统概论"></a>chapter1 操作系统概论</h2><p>操作系统定义：一组用于控制和管理计算机资源的程序集合  </p><p>计算机资源分为两类：  </p><ol><li>硬件资源：处理器，设备，存储器等  </li><li>信息资源：程序和数据  </li></ol><h3 id="1-1-操作系统功能"><a href="#1-1-操作系统功能" class="headerlink" title="1.1 操作系统功能"></a>1.1 操作系统功能</h3><ol><li>处理器管理  </li><li>存储管理  </li><li>设备管理  </li><li>文件管理  </li><li>网络管理  </li></ol><h3 id="1-2-操作系统的特性"><a href="#1-2-操作系统的特性" class="headerlink" title="1.2 操作系统的特性"></a>1.2 操作系统的特性</h3><ol><li><p>并发性<br> 指多个事件或活动在<strong>同一时间间隔</strong>内发生  </p><blockquote><p>并行：指多个事件或活动在<strong>同一时刻</strong>发生</p></blockquote></li><li><p>共享性<br> 指资源可以被多个并发程序共同使用  </p><blockquote><p>并发和共享是操作系统两个最基本的特性，它们相互依存</p></blockquote></li><li><p>不确定性（异步性）<br> 不确定性是并发与共享的必然结果  </p></li><li><p>虚拟性</p></li></ol><h3 id="1-3-操作系统的发展"><a href="#1-3-操作系统的发展" class="headerlink" title="1.3 操作系统的发展"></a>1.3 操作系统的发展</h3><ol><li>手工阶段  </li><li>批处理阶段  </li><li><p>执行处理阶段<br> 通道技术和中断技术出现  </p></li><li><p>多道处理阶段<br> 多个程序同时装入内存并启动<strong>交替</strong>执行<br> 多道运行的特征：  </p><pre><code> 1. 多道，多道程序同时在内存中 2. 宏观上并行 3. 微观上串行  </code></pre></li></ol><h3 id="1-4-操作系统分类"><a href="#1-4-操作系统分类" class="headerlink" title="1.4 操作系统分类"></a>1.4 操作系统分类</h3><ol><li>批处理操作系统</li><li>分时操作系统</li><li>实时操作系统  </li><li>网络操作系统</li><li>分布式操作系统</li><li>嵌入式操作系统</li></ol><h2 id="chapter2-用户界面"><a href="#chapter2-用户界面" class="headerlink" title="chapter2 用户界面"></a>chapter2 用户界面</h2><p>操作系统通过 程序接口和<strong>操作接口</strong> 两种方式提供服务和功能  </p><h3 id="2-1-操作接口"><a href="#2-1-操作接口" class="headerlink" title="2.1 操作接口"></a>2.1 操作接口</h3><p>又称 命令接口  </p><p>提供的命令有：  </p><ol><li>系统访问类</li><li>文件操作</li><li>磁盘操作命令</li><li>目录操作命令  </li><li>其他命令</li></ol><h3 id="2-2-系统调用"><a href="#2-2-系统调用" class="headerlink" title="2.2 系统调用"></a>2.2 系统调用</h3><p>目的：扩充机器能力，增强系统能力，方便用户使用  </p><p>系统调用本质上也是一种特殊的过程调用，但也有差别：</p><ol><li>调用形式不同：过程使用一般调用指令，而系统调用按功能号调用    </li><li>被调用代码位置不同：过程函数是静态调用，经过编译连接后不可改变。而系统调用是动态调用，代码在程序之外。</li><li>提供方式不同：过程函数有编译系统提供，而系统调用有操作系统提供。</li><li>调用实现方式不同：过程通过跳转指令，而系统调用通过中断机构实现。</li></ol><p>系统调用分类（了解）：  </p><ol><li>进程控制类  </li><li>进程通信类  </li><li>文件操作类  </li><li>设备管理类  </li><li>内存管理类  </li><li>信息维护类  </li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/01/09/OSchapter3/"/>
+      <url>/2019/01/09/OSchapter3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h2 id="Chapter3-进程管理与调度"><a href="#Chapter3-进程管理与调度" class="headerlink" title="Chapter3 进程管理与调度"></a>Chapter3 进程管理与调度</h2><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h3><ol><li>CPU由运算器，控制器，一系列寄存器以及高速缓冲组成</li><li><p>计算机指令系统分为特权指令与非特权指令<br> 处理器状态分为管态和目态。  </p><pre><code> 管态可以执行任何指令，并改变处理器状态。目态只能执行非特权指令。</code></pre><p> 状态切换：目态切换到管态只能通过<strong>中断</strong> 的方式，管态切换到目态可以采用修改程序状态字的方式。</p></li><li>程序状态字（PSW）<br> 指定程序能使用的指令权限。PSW 用来控制指令执行顺序并保留与程序相关的系统状态，主要作用是实现程序状态的保留和恢复。</li></ol><h3 id="2-中断"><a href="#2-中断" class="headerlink" title="2. 中断"></a>2. 中断</h3><p>中断：是由与现行指令无关的中断信号触发的（<strong>异步</strong>），中断与CPU处于的用户模式或内核模式无关。    </p><h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ol><li>硬中断<ol><li>外中断（中断，异步中断）</li><li>内中断（异常，同步中断）</li></ol></li><li>软中断<ol><li>信号</li><li>软件中断</li></ol></li></ol><h3 id="3-进程及实现"><a href="#3-进程及实现" class="headerlink" title="3. 进程及实现"></a>3. 进程及实现</h3><p>进程定义有：  </p><ol><li>进程是程序在cpu上的一次执行过程</li><li>进程可定义为一个数据结构以及能在其上操作的一个程序</li><li><strong>进程是程序在一个数据集合上的运行过程，是系统进行资源分配和调度的一个独立单位</strong></li></ol><h4 id="进程特性"><a href="#进程特性" class="headerlink" title="进程特性"></a>进程特性</h4><ol><li>动态性：进程有一定的生命周期</li><li>并发性：多个进程<strong>同时存在</strong>于内存，一段时间内<strong>同时运行</strong></li><li>结构性：进程包括程序，数据和进程控制块</li><li>独立性：进程是一个独立运行的基本单位，也是资源分配和调度的基本单位</li><li>异步性</li></ol><h4 id="进程与程序的区别"><a href="#进程与程序的区别" class="headerlink" title="进程与程序的区别"></a>进程与程序的区别</h4><ol><li>进程有自己的生命周期，程序相对长久</li><li>进程由程序，数据，进程控制块组成</li><li>一个程序包含多个进程，反之亦然</li><li>程序静态，进程动态</li><li>进程能更真实的描述并发，程序不能</li></ol><h4 id="进程状态"><a href="#进程状态" class="headerlink" title="进程状态"></a>进程状态</h4><p>三态模型<br><a href="./threeStatus.png">进程三态模型图</a></p><h4 id="进程控制块（PCB）"><a href="#进程控制块（PCB）" class="headerlink" title="进程控制块（PCB）"></a>进程控制块（PCB）</h4><p>操作系统为了管理进程专门设置的一个数据结构，记录进程外部特征，描述进程变化过程。  </p><p>包含：</p><ol><li>进程描述信息</li><li>进程控制信息</li><li>所拥有的资源和使用情况</li><li>现场保护信息</li></ol><h4 id="进程要素"><a href="#进程要素" class="headerlink" title="进程要素"></a>进程要素</h4><p>主要包含几个要素：程序，数据，进程控制块，用户/系统栈  </p><p>进程上下文：进程物理实体和支持进程运行的环境称为进程上下文<br>    分为3部分：  </p><pre><code>    1. 用户级上下文：用户地址空间      2. 寄存器级上下文：包换psw寄存器等等      3. 系统级上下文：静态部分包含pcb和资源表格，动态部分指核心栈</code></pre><h3 id="4-进程控制"><a href="#4-进程控制" class="headerlink" title="4. 进程控制"></a>4. 进程控制</h3><p>进程的控制包括创建，撤销等等  </p><p>进程的创建和撤销都要调用原语<br>原语操作在管态下执行，过程中不可中断。这可能是顺序的，不可能是并行的。  </p><h4 id="进程创建"><a href="#进程创建" class="headerlink" title="进程创建"></a>进程创建</h4><p>创建共有两种方式：系统模块统一创建，父进程创建  </p><p>过程：  </p><ol><li>系统在进程表中增加一项，从PCB池取一个空白pcb</li><li>分配内存空间，资源</li><li>查找辅存，找到正文段装入正文区</li><li>初始化pcb，psw</li><li>加入就绪进程队列，投入运行</li><li>通知系统某些模块</li></ol><blockquote><p>fork()函数  返回值解析：<br>  0 ： 子进程<br> >0 : 父进程中，值为子进程标识符<br>  -1 : 调用失败  </p></blockquote><h3 id="5-处理器调度"><a href="#5-处理器调度" class="headerlink" title="5. 处理器调度"></a>5. 处理器调度</h3><p>处理器调度分为3种：  </p><ol><li>高级调度，也称作业调度  </li><li>中级调度，亦称均衡调度。决定主存中能容纳的进程数    </li><li>低级调度，亦称线程调度。决定就绪队列中哪个进程或内核级线程获得处理器  </li></ol><h3 id="6-作业管理、调度"><a href="#6-作业管理、调度" class="headerlink" title="6. 作业管理、调度"></a>6. 作业管理、调度</h3><p>作业可分为若干步，每一步称为一个作业步<br>系统在作业进入后备状态时建立jcb，执行完毕后，撤销jcb并释放资源  </p><h4 id="作业与进程"><a href="#作业与进程" class="headerlink" title="作业与进程"></a>作业与进程</h4><ol><li>作业是系统提交任务的任务实体。进程是完成任务的执行实体。  </li><li>作业由一个或多个进程组成  </li></ol><h4 id="作业调度算法"><a href="#作业调度算法" class="headerlink" title="作业调度算法"></a>作业调度算法</h4><ol><li><p>先来先服务（FCFS）<br> 优点：利于长作业，利于CPU繁忙类型作业<br> 缺点：不利于短作业，不利于I/O繁忙作业  </p></li><li><p>短作业优先（SJF）<br> 优点：相比FCFS改善了周转时间，减少了等待时间，提高了吞吐量<br> 缺点：对长作业不利  </p></li><li><p>最高响应比（HRN）<br> 优点：是FCFS和SJF的折中<br> 缺点：吞吐量不如SJF，系统开销增加  </p></li></ol><h3 id="7-低级调度"><a href="#7-低级调度" class="headerlink" title="7. 低级调度"></a>7. 低级调度</h3><p>调度算法：  </p><ol><li>先来先服务  </li><li>时间片轮转调度算法  </li><li>优先级调度算法  <ul><li>静态优先级：根据进程的类型，与外设交互次数等等  </li><li>动态优先级：根据运行时间改变优先级  </li></ul></li></ol><h3 id="8-线程"><a href="#8-线程" class="headerlink" title="8. 线程"></a>8. 线程</h3><p>线程是进程的运行实体，线程是进程的一条执行路径，每个线程共享其所属的进程的所有资源  </p><h4 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h4><ol><li>进程是资源分配的基本单位，线程与资源分配无关  </li><li>不同进程地址空间不同，不同线程共享所属的进程的空间  </li><li>线程只由寄存器栈与TCB组成  </li><li>进程的调度和切换都由操作系统内核完成，线程既可由操作系统也可由用户程序进行  </li></ol>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/01/09/chapter10/"/>
+      <url>/2019/01/09/chapter10/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter10-并行通信"><a href="#Chapter10-并行通信" class="headerlink" title="Chapter10 并行通信"></a>Chapter10 并行通信</h2><p>并行通信同时传输数据所有位，速度快，但硬件开销大，不适合远距离传输。</p><p>一般并行接口应具备功能:</p><ol><li>具有一/多个端口</li><li>每个端口可与CPU，I/O设备进行联络控制</li><li>CPU与I/O接口可用无条件，查询，中断方式交换信息</li></ol><h4 id="8255A芯片"><a href="#8255A芯片" class="headerlink" title="8255A芯片"></a>8255A芯片</h4><p>内部有3个8位的输入输出端口：A口，B口，C口<br>A组模块包括：A口的8位，及C口的高8位<br>B组模块包括：B口的8位，及C口的低8位  </p><p>3个I/O端口都可用来输入/输出，有数据锁存功能</p><h5 id="端口地址"><a href="#端口地址" class="headerlink" title="端口地址"></a>端口地址</h5><p>A1，A0为地址最低两位  </p><ol><li>00 选中A口寄存器</li><li>01 选中B口寄存器</li><li>10 选中C口寄存器</li><li>11 选中控制字寄存器</li></ol><h5 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h5><p>8255A控制字有两个：方式选择控制字，C口按位置0/1 控制字<br>用D7位区分，D7=1为方式选择，D7=0为C口</p><ol><li><p>方式选择控制字<br> 8位寄存器格式： </p><p> | D7 | D6，D5 | D4 | D3 | D2 | D1 | D0 |<br> | – | :—-: | :–: | :–: | :–: | :–: | :–: |<br> | 置1 | A口工作方式<br>00=方式0<br>01=方式1<br>1x=方式2 | A口输入/出<br>0=输出<br>1=输入 | C口高4位输入/出<br>0=输出<br>1=输入 | B口工作方式<br>0=方式0<br>1=方式1 | B口输入/出<br>0=输出<br>1=输入 | C口低4位<br>0=输出<br>1=输入 |</p></li><li><p>C口按位置0/1控制字<br>C口控制功能：</p><ol><li>对外设的控制，实现C口某一位输出开关量或脉冲</li><li><p>设置方式1，2的中断允许  </p><p>8位寄存器格式：</p><p>| D7，D6，D5，D4 | D3，D2，D1 | D0 |<br>| :————: | :——–: | – |<br>| 置0            | C口的位地址<br>000=PC0<br>001=PC1<br>…<br>111=PC7 | 置0/1 |</p></li></ol></li></ol><blockquote><p>控制字都要写入8255控制寄存器，包括C口按位置0/1控制字</p></blockquote><h5 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h5><p>方式0：基本型，及无条件输入输出，端口与外设间不需联络线<br>方式1：选通型，可用中断或查询方式交换信息，端口与外设间必须有联络线<br>方式2：双向数据传送，可用中断或查询方式</p><table><thead><tr><th>端口</th><th>可选工作方式</th><th style="text-align:center">中断允许控制字(位置1 代表允许中断)</th></tr></thead><tbody><tr><td>A口</td><td>方式0，1，2</td><td style="text-align:center">PC6 输出允许<br>PC4 输入允许</td></tr><tr><td>B口</td><td>方式0，1</td><td style="text-align:center">PC2 兼输入，输出</td></tr><tr><td>C口</td><td>方式0</td><td style="text-align:center">无</td></tr></tbody></table><ol><li><p>方式0<br> CPU读取数据前，须保证端口数据已准备好<br> CPU写入数据前，须保证端口数据线处于空闲</p></li><li><p>方式1  </p><ol><li>输入<br> IBF，输入缓冲满，高电平有效<br> 查询方式时，只有IBF为1时，CPU才能读取输入数据</li><li>输出<br> !OBF，输出缓冲满，低电平有效<br> 查询方式时，只有 !OBF 为1，CPU才能写入新数据  </li></ol></li></ol><h5 id="初始化编程"><a href="#初始化编程" class="headerlink" title="初始化编程"></a>初始化编程</h5><p>8255A初始化分两步进行：写入方式选择控制字，若是方式1或方式2，还需要写入C口控制字以实现禁止或开放中断的目的。  </p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/2019/01/09/chapter9/"/>
+      <url>/2019/01/09/chapter9/</url>
+      
+        <content type="html"><![CDATA[<h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter9-串行通信"><a href="#Chapter9-串行通信" class="headerlink" title="Chapter9 串行通信"></a>Chapter9 串行通信</h2><p>并行通信多用于计算机内部，或者计算机与近距离外设<br>串行通信常用于计算机与低速外设或计算机之间<br>传输距离较远时，利用通信线路  </p><blockquote><p>串行异步通信 与 串行同步通信 区别：<br>  异步通信：一帧字符是用起始位，停止位完成收发同步.  这种通信方式中，字符间隔任意，所以称为异步通信。<br>  同步通信：通过同步字符来完成收发双方同步</p></blockquote><h4 id="串行数据传输方式"><a href="#串行数据传输方式" class="headerlink" title="串行数据传输方式"></a>串行数据传输方式</h4><p>共有3种方式：</p><ol><li>单工：数据按固定的一个方向传送  </li><li>半双工：收发双方都可接受或发送数据，但不可在两个方向上同时传送  </li><li>全双工：收发双方可同时发送或接收数据  </li></ol><h4 id="串行异步通信"><a href="#串行异步通信" class="headerlink" title="串行异步通信"></a>串行异步通信</h4><blockquote><p>要想正常通信，收发双方的<strong>帧数据格式、通信速率</strong>必须一致  </p></blockquote><p>帧数据格式如下：</p><table><thead><tr><th>起始位</th><th style="text-align:center">数据位</th><th>校验位</th><th>停止位</th></tr></thead><tbody><tr><td>0</td><td style="text-align:center">数据低位~数据高位<br>长度5~8位</td><td>1 位</td><td>1、1.5、2位均可</td></tr></tbody></table><h4 id="RS-232通信标准"><a href="#RS-232通信标准" class="headerlink" title="RS-232通信标准"></a>RS-232通信标准</h4><p>RS-232采用负逻辑，逻辑1为-15v~-3v，逻辑0为+3v~+15v。<br>TTL采用正逻辑<br>两者之间转换需要电平转换器：MC1488 将TTL转为RS-232，MC1489 将RS-232转为TTL</p><h3 id="8250芯片"><a href="#8250芯片" class="headerlink" title="8250芯片"></a>8250芯片</h3><p>内部共有3组器件：  </p><ol><li>传输数据型：发送保持寄存器，接收缓冲寄存器</li><li>控制寄存器：通信线控制寄存器，除数寄存器，MODEM控制寄存器，中断允许寄存器</li><li>状态寄存器：通信线状态寄存器，MODEM状态寄存器，中断识别寄存器</li></ol><blockquote><p>16 x 波特率 = 1843200 / 分频系数(即除数)  </p></blockquote><h5 id="8250-内部寄存器功能"><a href="#8250-内部寄存器功能" class="headerlink" title="8250 内部寄存器功能"></a>8250 内部寄存器功能</h5><ol><li><p>发送保持寄存器<br> 保存CPU送出的并行数据，转移至发送移位寄存器，发送移位寄存器自动添加起始位，校验位，停止位，并将并行数据转成串行数据</p></li><li><p>接收缓冲寄存器<br> 外部串行数据被逐位存入接收移位寄存器，自动校验，并去掉起始位，校验位，停止位。接着将数据存入接受缓冲寄存器</p></li><li><p>通信线状态寄存器<br> 提供数据传输的状态信息  </p><p> | D7 | D6 | D5 | D4 | D3,D2,D1 | D0 |<br> | – | – | – | – | ——– | – |<br> | 0 | 发送移位寄存器空闲标志 | 发送保持寄存器空闲标志 | 错误标志 | 接受缓冲器满标志 |</p></li><li><p>中断允许寄存器<br> D7-D4恒为0，D3-D0表示8250四级中断是否允许</p></li><li><p>中断识别寄存器<br> CPU识别中断源</p></li><li><p>MODEM控制寄存器<br> D0-D3的状态直接控制相关引脚的输出电平<br> D3=1，8250能送出中断请求<br> D4位通常置0，8250正常收发工作方式。<strong>内环自检工作方式</strong>时置为1  </p></li><li><p>除数寄存器<br> 16位寄存器，存放分频系数，写入时分两次写入，每次写8位<br> 此寄存器与别的寄存器共用端口地址，写入时，须将<strong>通信线控制寄存器D7置1</strong></p></li><li><p>通信线控制寄存器<br> 规定串行异步通信的格式  </p><p> | D7 | D6 | D5,D4,D3 | D2 | D1,D0 |<br> | :–: | :–: | :—: | :–: | :–: |<br> | 寻址位<br>1 访问除数寄存器<br>0 访问非除数 | 中止位设置<br>1 输出长时间终止信号<br>0 正常通信 | 校验位设置<br>001 奇校验<br>011 偶校验<br>101 校验位恒为1<br>111 校验位恒为0 | 停止位设置<br>0:1位<br>1(D1D0=00):1.5位<br>1(D1D0!=00):2位 | 数据位设置<br>00:5位<br>01:6位<br>10:7位<br>11:8位 |</p></li><li><p>MODEM状态寄存器<br> 反应8250余通信设备之间联络信号的当前状态及变化情况</p></li></ol><h4 id="8250初始化编程"><a href="#8250初始化编程" class="headerlink" title="8250初始化编程"></a>8250初始化编程</h4><ol><li>通信线控制寄存器 &lt;- 80H，以便写入除数寄存器</li><li>分别向除数寄存器高8位，低8位写入数据，确定通信速率</li><li>向通信线控制寄存器写入数据格式</li><li>设置中断是否允许，允许则中断允许寄存器相应位为 1</li><li>设置MODEM控制寄存器<br> D3=1，允许8250送出中断请求； D3=0，查询方式  <pre><code>         D4=1，内环自检；D4=0，正常通信</code></pre></li></ol><blockquote><p>8250查询方式下接收和发送程序编程  </p><p>  发送数据前，读通信线状态寄存器获取发送保持或移位寄存器是否空闲<br>  接收数据前，读接受通信线状态寄存器获取接受缓冲寄存器是否已经收到 1 帧数据</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统第四章</title>
+      <link href="/2019/01/09/OSchapter4/"/>
+      <url>/2019/01/09/OSchapter4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="操作系统第四章"><a href="#操作系统第四章" class="headerlink" title="操作系统第四章"></a>操作系统第四章</h2><h3 id="进程关系"><a href="#进程关系" class="headerlink" title="进程关系"></a>进程关系</h3><p><strong>同步和互斥</strong>，互斥是同步的特例  </p><p>互斥是相同进程之间，又称间接制约<br>同步是不同进程之间，又称直接制约    </p><h3 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h3><p>使用临界区原则：  </p><ol><li>有空让进</li><li>无空等待</li><li>多中择一</li><li>有限等待</li><li>让权等待</li></ol><h3 id="信号量与PV操作"><a href="#信号量与PV操作" class="headerlink" title="信号量与PV操作"></a>信号量与PV操作</h3><ol><li><p>生产者消费者问题</p><p> <img src="" alt="生产者消费者"></p></li><li><p>苹果橘子问题</p><p> <img src="" alt="苹果橘子"></p></li><li><p>读者写者问题</p><p> <img src="" alt="读者写者"></p></li></ol><h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>进程交互基本要求：<strong>同步和通信</strong></p><p>通信方式：  </p><ol><li>主从式</li><li>会话式</li><li>消息队列和信箱式</li><li>共享存储区式</li></ol><blockquote><p>管道本质是一个共享文件</p></blockquote><h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><ol><li><p>死锁原因</p><ul><li>资源不足</li><li>分配不当</li><li><p>进程推进顺序不合适</p><blockquote><p>死锁的4个必要条件：  </p><ol><li>互斥使用</li><li>不可剥夺</li><li>请求和保持</li><li>循环等待</li></ol></blockquote></li></ul></li><li><p>死锁预防</p><p> 静态方法，破坏四个必要条件中其中一个</p><ul><li>破坏不可剥夺</li><li>破坏请求和保持</li><li>破坏循环等待</li></ul></li><li><p>死锁避免</p><p> 动态方法<br> 银行家算法</p></li><li><p>死锁检测</p><p> 资源分配图</p><blockquote><p>资源分配图有环路是死锁的 <strong>必要条件</strong><br>死锁的充分条件是：资源分配图不可完全简化  </p></blockquote></li><li><p>死锁的解除</p><ol><li>资源剥夺法</li><li>撤销进程法</li></ol></li></ol><h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><p>一个数据结构和能为并发进程所执行的一组操作。<br>管程是集中式同步进程，用共享数据结构抽象表示系统中的共享资源  </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统复习第七章</title>
+      <link href="/2019/01/09/OSchapter7/"/>
+      <url>/2019/01/09/OSchapter7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="操作系统复习"><a href="#操作系统复习" class="headerlink" title="操作系统复习"></a>操作系统复习</h1><h2 id="操作系统第七章"><a href="#操作系统第七章" class="headerlink" title="操作系统第七章"></a>操作系统第七章</h2><h3 id="文件系统概念"><a href="#文件系统概念" class="headerlink" title="文件系统概念"></a>文件系统概念</h3><p>文件系统应具备的功能：  </p><pre><code>1. 辅存管理2. 按名存取3. 文件查找4. 文件存取方式5. 文件共享和保护</code></pre><h3 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h3><p>文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备</p><h4 id="1-文件逻辑结构"><a href="#1-文件逻辑结构" class="headerlink" title="1. 文件逻辑结构"></a>1. 文件逻辑结构</h4><ol><li>流式文件<br> 无结构文件。<br> 在Linux中，字符设备也被看做流式文件  </li><li>记录式文件<br> 有结构式文件  </li></ol><h4 id="2-文件存取方法"><a href="#2-文件存取方法" class="headerlink" title="2. 文件存取方法"></a>2. 文件存取方法</h4><ol><li>顺序存取  </li><li>直接存取</li><li>索引存取</li></ol><h4 id="3-文件物理结构"><a href="#3-文件物理结构" class="headerlink" title="3. 文件物理结构"></a>3. 文件物理结构</h4><ol><li><p>连续文件  </p></li><li><p>串联文件  </p></li><li><p>索引文件  </p></li></ol><h4 id="4-文件存储设备"><a href="#4-文件存储设备" class="headerlink" title="4. 文件存储设备"></a>4. 文件存储设备</h4><ol><li>顺序存储设备<br> 磁带是最典型的顺序存取设备  </li><li>直接存取设备<br> 磁盘是最典型的直接存取设备  </li></ol><h3 id="文件目录管理的基本要求"><a href="#文件目录管理的基本要求" class="headerlink" title="文件目录管理的基本要求"></a>文件目录管理的基本要求</h3><ol><li>实现按名存取  </li><li>提高文件检索速度  </li><li>文件共享  </li><li>允许文件重名</li></ol><p>文件控制块至少包括：  </p><ol><li>文件名  </li><li>文件在存储器上的物理地址  </li><li>文件逻辑结构<br>…</li></ol><h4 id="文件目录结构"><a href="#文件目录结构" class="headerlink" title="文件目录结构"></a>文件目录结构</h4><ol><li>单级目录  </li><li>二级目录<br> <strong>实现了文件重名</strong></li><li>树目录<br> 优点：文件可重名、检索速度快、易于规定权限  </li></ol><h4 id="文件共享"><a href="#文件共享" class="headerlink" title="文件共享"></a>文件共享</h4><ol><li>采用链接方法</li><li>采用基本文件目录</li></ol><h3 id="文件安全"><a href="#文件安全" class="headerlink" title="文件安全"></a>文件安全</h3><p>实现方式共有4种：  </p><ol><li>存取控制矩阵</li><li>存取控制表<br> 如：’-rwxr-xr-x’</li><li>口令</li><li>密码</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> review </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> OS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微机复习第十一章</title>
       <link href="/2019/01/03/chapter11Reivew/"/>
       <url>/2019/01/03/chapter11Reivew/</url>

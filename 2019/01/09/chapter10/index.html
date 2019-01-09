@@ -5,13 +5,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="微机复习第十一章, AKTH BLOG">
-    <meta name="description" content="微型计算机接口技术Chapter 11本章主要内容是可编程定时器/计数器 8254芯片
-8254芯片有3个独立的16位计数器。系统地址最后两位A1 A0指定了寄存器类型：
+    <meta name="keywords" content="AKTH BLOG">
+    <meta name="description" content="微型计算机接口Chapter10 并行通信并行通信同时传输数据所有位，速度快，但硬件开销大，不适合远距离传输。
+一般并行接口应具备功能:
 
-00 选中#0号计数器  
-01 选中#1号计数器  
-10 选中">
+具有一/多个端口
+每个端口可与CPU，I/O设备进行联络控制
+CPU与I/O接口可用无条件，查询，中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>微机复习第十一章 | AKTH BLOG</title>
+    <title>AKTH BLOG</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -275,13 +275,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        微机复习第十一章
+                        
                     </div>
                 </div>
             </div>
@@ -299,29 +299,11 @@
     <div class="card">
         <div class="card-content article-info">
             
-            <div class="article-tag">
-                
-                <a href="/tags/microcomputer/" target="_blank">
-                    <span class="chip bg-color">microcomputer</span>
-                </a>
-                
-            </div>
-            
             <div class="post-info">
-                
-                <span class="post-cate">
-                <!--<span class="post-cate" style="margin-right: 0px">-->
-                    <i class="fa fa-bookmark fa-fw icon-category"></i>
-                    
-                    <a href="/categories/review/" class="post-category" target="_blank">
-                        review
-                    </a>
-                    
-                </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2019-01-03
+                    <i class="fa fa-clock-o fa-fw"></i>2019-01-09
                 </span>
 				
 				
@@ -333,34 +315,78 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="微型计算机接口技术"><a href="#微型计算机接口技术" class="headerlink" title="微型计算机接口技术"></a>微型计算机接口技术</h1><h2 id="Chapter-11"><a href="#Chapter-11" class="headerlink" title="Chapter 11"></a>Chapter 11</h2><p>本章主要内容是可编程定时器/计数器 <strong>8254芯片</strong></p>
-<h4 id="8254芯片"><a href="#8254芯片" class="headerlink" title="8254芯片"></a>8254芯片</h4><p>有3个独立的16位计数器。<br>系统地址最后两位A1 A0指定了寄存器类型：</p>
+                <h1 id="微型计算机接口"><a href="#微型计算机接口" class="headerlink" title="微型计算机接口"></a>微型计算机接口</h1><h2 id="Chapter10-并行通信"><a href="#Chapter10-并行通信" class="headerlink" title="Chapter10 并行通信"></a>Chapter10 并行通信</h2><p>并行通信同时传输数据所有位，速度快，但硬件开销大，不适合远距离传输。</p>
+<p>一般并行接口应具备功能:</p>
 <ol>
-<li>00 选中#0号计数器  </li>
-<li>01 选中#1号计数器  </li>
-<li>10 选中#2号计数器  </li>
-<li>11 选中控制寄存器   </li>
+<li>具有一/多个端口</li>
+<li>每个端口可与CPU，I/O设备进行联络控制</li>
+<li>CPU与I/O接口可用无条件，查询，中断方式交换信息</li>
 </ol>
-<p>主要有三个功能：  </p>
+<h4 id="8255A芯片"><a href="#8255A芯片" class="headerlink" title="8255A芯片"></a>8255A芯片</h4><p>内部有3个8位的输入输出端口：A口，B口，C口<br>A组模块包括：A口的8位，及C口的高8位<br>B组模块包括：B口的8位，及C口的低8位  </p>
+<p>3个I/O端口都可用来输入/输出，有数据锁存功能</p>
+<h5 id="端口地址"><a href="#端口地址" class="headerlink" title="端口地址"></a>端口地址</h5><p>A1，A0为地址最低两位  </p>
 <ol>
-<li>日时钟中断(对应 <strong>#0</strong> 号计数器)  </li>
-<li>存储器动态刷新(对应 <strong>#1</strong> 号计数器)  </li>
-<li>发声系统声源(对应 <strong>#2</strong> 号计数器)</li>
+<li>00 选中A口寄存器</li>
+<li>01 选中B口寄存器</li>
+<li>10 选中C口寄存器</li>
+<li>11 选中控制字寄存器</li>
 </ol>
-<p>要想使8254正常工作，需要按照一定的流程对他进行设置：  </p>
+<h5 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h5><p>8255A控制字有两个：方式选择控制字，C口按位置0/1 控制字<br>用D7位区分，D7=1为方式选择，D7=0为C口</p>
 <ol>
-<li>向控制寄存器写入控制字  </li>
-<li>向需要操作的计数器写入初值</li>
+<li><p>方式选择控制字<br> 8位寄存器格式： </p>
+<p> | D7 | D6，D5 | D4 | D3 | D2 | D1 | D0 |<br> | – | :—-: | :–: | :–: | :–: | :–: | :–: |<br> | 置1 | A口工作方式<br>00=方式0<br>01=方式1<br>1x=方式2 | A口输入/出<br>0=输出<br>1=输入 | C口高4位输入/出<br>0=输出<br>1=输入 | B口工作方式<br>0=方式0<br>1=方式1 | B口输入/出<br>0=输出<br>1=输入 | C口低4位<br>0=输出<br>1=输入 |</p>
+</li>
+<li><p>C口按位置0/1控制字<br>C口控制功能：</p>
+<ol>
+<li>对外设的控制，实现C口某一位输出开关量或脉冲</li>
+<li><p>设置方式1，2的中断允许  </p>
+<p>8位寄存器格式：</p>
+<p>| D7，D6，D5，D4 | D3，D2，D1 | D0 |<br>| :————: | :——–: | – |<br>| 置0            | C口的位地址<br>000=PC0<br>001=PC1<br>…<br>111=PC7 | 置0/1 |</p>
+</li>
 </ol>
-<h4 id="初值"><a href="#初值" class="headerlink" title="初值"></a>初值</h4><p>计算公式为：</p>
+</li>
+</ol>
 <blockquote>
-<p>N = f<sub>clk</sub> / f<sub>out</sub>  </p>
+<p>控制字都要写入8255控制寄存器，包括C口按位置0/1控制字</p>
 </blockquote>
-<p>初值范围：<br>0000H～FFFFH 二进制数，最大为65536<br>0000H～9999H BCD码，最大为9999</p>
-<h4 id="控制字"><a href="#控制字" class="headerlink" title="控制字"></a>控制字</h4><p>共有8位<br>| D7,D6 | D5,D4 | D3,D2,D1 | D0 |<br>| :—: | :—: | :——: | – |<br>| <strong>选中计数器</strong><br>00代表#0号计数器<br>01代表#1号计数器<br>10代表#2号计数器<br>11&nbsp;代表控制寄存器      | <strong>选择输入方式</strong><br>00代表锁存数据<br>01代表只输低8位<br>10代表只输高8位<br>11代表先低8位后高8位 | <strong>选择工作方式</strong><br>6个不同的二进制数<br>代表对应的工作方式 | <strong>选择输入数类型</strong><br>0代表二进制数类型<br>1代表BCD码数类型 |</p>
-<blockquote>
-<p>工作方式中：方式0代表跃变信号; 方式2代表分频器; 方式3代表<strong>方波发生器</strong>;<br><strong>注意</strong>：控制字必须写入到控制寄存器中  </p>
-</blockquote>
+<h5 id="工作方式"><a href="#工作方式" class="headerlink" title="工作方式"></a>工作方式</h5><p>方式0：基本型，及无条件输入输出，端口与外设间不需联络线<br>方式1：选通型，可用中断或查询方式交换信息，端口与外设间必须有联络线<br>方式2：双向数据传送，可用中断或查询方式</p>
+<table>
+<thead>
+<tr>
+<th>端口</th>
+<th>可选工作方式</th>
+<th style="text-align:center">中断允许控制字(位置1 代表允许中断)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A口</td>
+<td>方式0，1，2</td>
+<td style="text-align:center">PC6 输出允许<br>PC4 输入允许</td>
+</tr>
+<tr>
+<td>B口</td>
+<td>方式0，1</td>
+<td style="text-align:center">PC2 兼输入，输出</td>
+</tr>
+<tr>
+<td>C口</td>
+<td>方式0</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li><p>方式0<br> CPU读取数据前，须保证端口数据已准备好<br> CPU写入数据前，须保证端口数据线处于空闲</p>
+</li>
+<li><p>方式1  </p>
+<ol>
+<li>输入<br> IBF，输入缓冲满，高电平有效<br> 查询方式时，只有IBF为1时，CPU才能读取输入数据</li>
+<li>输出<br> !OBF，输出缓冲满，低电平有效<br> 查询方式时，只有 !OBF 为1，CPU才能写入新数据  </li>
+</ol>
+</li>
+</ol>
+<h5 id="初始化编程"><a href="#初始化编程" class="headerlink" title="初始化编程"></a>初始化编程</h5><p>8255A初始化分两步进行：写入方式选择控制字，若是方式1或方式2，还需要写入C口控制字以实现禁止或开放中断的目的。  </p>
 
             </div>
             <hr>
@@ -499,7 +525,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">AKTH BLOG</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/01/03/chapter11Reivew/" class="b-link-green">微机复习第十一章</a>
+                    <a href="/2019/01/09/chapter10/" class="b-link-green"></a>
                 </p>
             </div>
         </div>
@@ -523,47 +549,31 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
-                <a href="/2019/01/09/OSchapter7/">
+                <a href="/2019/01/09/OSchapter3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="操作系统复习第七章">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">操作系统复习第七章</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">操作系统复习操作系统第七章文件系统概念文件系统应具备的功能：  
-1. 辅存管理
-2. 按名存取
-3. 文件查找
-4. 文件存取方式
-5. 文件共享和保护
-文件结构文件结构有文件逻辑结构、文件存取方式、文件物理结构、文件存取设备
-1. 文件</div>
+                    <div class="summary">操作系统Chapter3 进程管理与调度1. 概念
+CPU由运算器，控制器，一系列寄存器以及高速缓冲组成
+计算机指令系统分为特权指令与非特权指令 处理器状态分为管态和目态。  
+ 管态可以执行任何指令，并改变处理器状态。目态只能执行非特权指</div>
                     <div class="publish-info">
                         <span class="publish-date">
                             <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            akth
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/OS/" target="_blank">
-                        <span class="chip bg-color">OS</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -573,43 +583,30 @@
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">Next</div>
             <div class="card">
-                <a href="/2018/01/04/chapter8Review/">
+                <a href="/2019/01/09/chapter9/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="微机复习第八章">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">微机复习第八章</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">微型计算机接口Chapter 8本章的主要内容是中断
-中断基本概念CPU暂停当前执行的程序，转而执行服务程序，执行完成后继续执行被暂停主程序 叫做中断
-中断类型码范围0～255，前32个DOS保留  
-中断向量中断服务子程序的地址共有4个字</div>
+                    <div class="summary">微型计算机接口Chapter9 串行通信并行通信多用于计算机内部，或者计算机与近距离外设串行通信常用于计算机与低速外设或计算机之间传输距离较远时，利用通信线路  
+
+串行异步通信 与 串行同步通信 区别：  异步通信：一帧字符是用起始位，停</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-01-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-09
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/review/" class="post-category" target="_blank">
-                                    review
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            akth
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/microcomputer/" target="_blank">
-                        <span class="chip bg-color">microcomputer</span>
-                    </a>
-                    
                 </div>
                 
             </div>
